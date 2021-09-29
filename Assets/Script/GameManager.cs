@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Transform _boardRoot;
-
     [SerializeField] private Crane crane;
 
     [SerializeField] private Text _elapsedTimeFromStartText;
@@ -34,12 +32,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator Start()
+    private bool ended;
+
+    private void Start()
     {
         Debug.Log("start");
-        while (true)
-        {
-            yield return PlayGame();
+        ended = false;
+        StartCoroutine(PlayGame());
+    }
+
+    private void Update() {
+        if (ended) {
+
         }
     }
 
@@ -71,12 +75,8 @@ public class GameManager : MonoBehaviour
 
             yield return null;
         }
-
         // GameOver
-        ElapsedTimeFromStart = Mathf.Min(ElapsedTimeFromStart, MaxElapsedTimeFromStart);
-
-        yield return new WaitForSeconds(1f);
-
-
+        // ElapsedTimeFromStart = Mathf.Min(ElapsedTimeFromStart, MaxElapsedTimeFromStart);
+        ended = true;
     }
 }

@@ -1,0 +1,4 @@
+Container 64 x 32
+Slot 70 x 36
+Conveyor 10 x 320
+Large Boat 76 x 250

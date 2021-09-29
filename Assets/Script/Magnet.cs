@@ -6,31 +6,36 @@ public class Magnet : MonoBehaviour
 
     private bool withContainer;
 
-    [SerializeField] private GameObject container;
-    [SerializeField] private GameObject slot;
+    private AContainer container;
+    private SpriteRenderer spriteRenderer;
+    private ISlot slot;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Container" && withContainer == false) {
-            // Debug.Log(string.Format("Enter {0}", other.gameObject.name));
-            container = other.gameObject;
-            indicator.Indicate(container.gameObject.transform.position);
+            container = other.gameObject.GetComponent<AContainer>();
+            spriteRenderer = container.GetComponent<SpriteRenderer>();
+            indicator.Indicate(container.gameObject.transform);
         }
         else if (other.gameObject.tag == "Slot") {
-            // Debug.Log(string.Format("Enter {0}", other.gameObject.name));
-            slot = other.gameObject;
+            slot = other.gameObject.GetComponent<ISlot>();
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Container" && withContainer == false) {
+            indicator.Indicate(container.gameObject.transform);
         }
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.tag == "Container" && withContainer == false) {
-            // Debug.Log(string.Format("Exit {0}", other.gameObject.name));
             indicator.UnIndicate();
             container = null;
         }
         else if (other.gameObject.tag == "Slot") {
-            // Debug.Log(string.Format("Exit {0}", other.gameObject.name));
             slot = null;
         }
     }
@@ -48,22 +53,39 @@ public class Magnet : MonoBehaviour
     public void PickUp()
     {
         indicator.UnIndicate();
+        container = slot.Retrive(container);
         container.transform.SetParent(gameObject.transform);
+        RaiseSortingOrder();
         withContainer = true;
     }
 
     public void PutDown()
     {
-        Debug.Log(string.Format("Put Down on {0}", slot.name));
-        // slot.GetComponent<Slot>().PutContainer(container);
-        container.transform.SetParent(slot.transform);
-        container.transform.localPosition = Vector3.zero;
-        withContainer = false;
+        if (IsOnSlot() && slot.Store(container)) {
+            ReduceSortingOrder();
+            container = null;
+            withContainer = false;
+        }
+        else {
+            if (IsOnSlot())
+                Debug.Log("Is On Slot Warn");
+            indicator.Warn(container.transform);
+        }
     }
 
     public bool IsWithContainer()
     {
         return withContainer;
+    }
+
+    public void RaiseSortingOrder() {
+        indicator.RaiseSortingOrder();
+        spriteRenderer.sortingOrder = 10;
+    }
+
+    public void ReduceSortingOrder() {
+        indicator.ReduceSortingOrder();
+        spriteRenderer.sortingOrder = 1;
     }
 
 }

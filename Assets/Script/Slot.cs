@@ -2,37 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, ISlot
 {
-
-    private bool occupied;
 
     private AContainer container;
 
-    public bool Occupied {
-        get => occupied;
-        set => occupied = value;
+    void Start() {
+        container = null;
     }
 
-    void Start()
-    {
-        occupied = false;
-    }
-
-    public void PutContainer(AContainer container) {
+    public bool Store(AContainer container) {
+        if (this.container != null) return false;
         this.container = container;
         this.container.transform.SetParent(gameObject.transform);
         this.container.transform.localPosition = Vector3.zero;
-        occupied = true;
+        return true;
     }
 
-    public AContainer GetContainer(GameObject go) {
-        this.container.transform.SetParent(go.transform);
-        occupied = false;
-        return this.container;
-    }
-
-    public void ClearContainer() {
+    public AContainer Retrive(AContainer container) {
+        AContainer tmp = this.container;
         this.container = null;
+        return tmp;
     }
 }

@@ -46,6 +46,9 @@ TagManager:
   - name: BackGround
     uniqueID: 1232072253
     locked: 0
+  - name: Boat
+    uniqueID: 2381615023
+    locked: 0
   - name: Slot
     uniqueID: 3027341571
     locked: 0
@@ -54,4 +57,7 @@ TagManager:
     locked: 0
   - name: Crane
     uniqueID: 2963427841
+    locked: 0
+  - name: End
+    uniqueID: 1259516015
     locked: 0

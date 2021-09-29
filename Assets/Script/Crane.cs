@@ -38,9 +38,7 @@ public class Crane : MonoBehaviour {
 
     public void PutDown()
     {
-        if (magnet.IsOnSlot()) {
-            magnet.PutDown();
-        }
+        magnet.PutDown();
     }
 
 
