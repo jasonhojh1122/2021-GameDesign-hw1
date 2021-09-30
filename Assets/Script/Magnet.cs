@@ -6,19 +6,20 @@ public class Magnet : MonoBehaviour
 
     private bool withContainer;
 
-    private AContainer container;
+    private Container container;
     private SpriteRenderer spriteRenderer;
     private ISlot slot;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Container" && withContainer == false) {
-            container = other.gameObject.GetComponent<AContainer>();
+            container = other.gameObject.GetComponent<Container>();
             spriteRenderer = container.GetComponent<SpriteRenderer>();
             indicator.Indicate(container.gameObject.transform);
         }
         else if (other.gameObject.tag == "Slot") {
             slot = other.gameObject.GetComponent<ISlot>();
+            slot.Touch();
         }
     }
 
@@ -52,6 +53,7 @@ public class Magnet : MonoBehaviour
 
     public void PickUp()
     {
+        if (!IsOnSlot()) return;
         indicator.UnIndicate();
         container = slot.Retrive(container);
         container.transform.SetParent(gameObject.transform);
@@ -67,8 +69,6 @@ public class Magnet : MonoBehaviour
             withContainer = false;
         }
         else {
-            if (IsOnSlot())
-                Debug.Log("Is On Slot Warn");
             indicator.Warn(container.transform);
         }
     }

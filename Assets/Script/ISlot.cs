@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public interface ISlot {
-    bool Store(AContainer container);
-    AContainer Retrive(AContainer container);
+    bool Store(Container container);
+    Container Retrive(Container container);
+    void Touch();
 }

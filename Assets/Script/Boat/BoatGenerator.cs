@@ -58,7 +58,7 @@ public class BoatGenerator : MonoBehaviour {
         curBoat = Instantiate(boats[res], spawnPoint.position, Quaternion.identity);
         for (int i = 0; i < curBoat.SlotNum; i++) {
             string type = cg.GenerateContainerType();
-            curBoat.SetSlotType(i, type, cg.GetTargetSprite(type));
+            curBoat.SetSlotType(i, cg.GetContainer(type));
         }
         curBoat.MoveTo(stopPoint.position);
     }

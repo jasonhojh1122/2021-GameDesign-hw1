@@ -72,6 +72,10 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space)) {
                 crane.Operate();
             }
+            if (!Input.anyKey) {
+                Debug.Log("ANY KEY");
+                crane.Move(Crane.Direction.STOP);
+            }
 
             yield return null;
         }

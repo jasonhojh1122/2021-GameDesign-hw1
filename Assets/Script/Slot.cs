@@ -5,13 +5,17 @@ using UnityEngine;
 public class Slot : MonoBehaviour, ISlot
 {
 
-    private AContainer container;
+    private Container container;
+
+    Animator anim;
 
     void Start() {
         container = null;
+        anim = GetComponent<Animator>();
+        anim.Play("Rest");
     }
 
-    public bool Store(AContainer container) {
+    public bool Store(Container container) {
         if (this.container != null) return false;
         this.container = container;
         this.container.transform.SetParent(gameObject.transform);
@@ -19,9 +23,13 @@ public class Slot : MonoBehaviour, ISlot
         return true;
     }
 
-    public AContainer Retrive(AContainer container) {
-        AContainer tmp = this.container;
+    public Container Retrive(Container container) {
+        Container tmp = this.container;
         this.container = null;
         return tmp;
+    }
+
+    public void Touch() {
+        anim.Play("Slot");
     }
 }

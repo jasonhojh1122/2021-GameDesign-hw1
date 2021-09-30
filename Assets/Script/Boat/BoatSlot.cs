@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BoatSlot : MonoBehaviour, ISlot {
 
-    protected AContainer container;
+    protected Container container;
 
     protected string type;
 
@@ -12,12 +12,12 @@ public class BoatSlot : MonoBehaviour, ISlot {
         sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    public void SetType(string type, Sprite sprite) {
-        this.type = type;
-        sr.sprite = sprite;
+    public void SetType(Container container) {
+        type = container.GetContainerType();
+        sr.sprite = container.GetTargetSprite();
     }
 
-    public bool Store(AContainer container) {
+    public bool Store(Container container) {
         if (this.container != null) return false;
         this.container = container;
         container.transform.SetParent(gameObject.transform);
@@ -25,16 +25,22 @@ public class BoatSlot : MonoBehaviour, ISlot {
         return true;
     }
 
-    public AContainer Retrive(AContainer container) {
-        return null;
+    public Container Retrive(Container container) {
+        Container tmp = container;
+        container = null;
+        return tmp;
     }
 
-    public AContainer GetContainer() {
+    public Container GetContainer() {
         return container;
     }
 
     public string GetContainerType() {
         return type;
+    }
+
+    public void Touch() {
+        return;
     }
 
 }

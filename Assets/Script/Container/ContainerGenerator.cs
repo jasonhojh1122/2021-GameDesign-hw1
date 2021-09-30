@@ -7,22 +7,22 @@ public class ContainerGenerator : MonoBehaviour {
     [SerializeField] private float interval;
     [SerializeField] private Conveyor conveyor;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private List<AContainer> containers;
+    [SerializeField] private List<Container> containers;
 
     private List<string> containerTypes;
 
     private List<float> CDF;
 
-    private Dictionary<string, Sprite> targetSprites;
+    private Dictionary<string, Container> containerDict;
 
     void Start()
     {
         containerTypes = new List<string>();
         CDF = new List<float>();
-        targetSprites = new Dictionary<string, Sprite>();
+        containerDict = new Dictionary<string, Container>();
         for (int i = 0; i < containers.Count; i++) {
             containerTypes.Add(containers[i].GetContainerType());
-            targetSprites.Add(containers[i].GetContainerType(), containers[i].GetTargetSprite());
+            containerDict.Add(containers[i].GetContainerType(), containers[i]);
             CDF.Add(containers[i].GetSelectedWeight());
             if (i > 0) {
                 CDF[i] += CDF[i-1];
@@ -47,7 +47,7 @@ public class ContainerGenerator : MonoBehaviour {
         }
     }
 
-    private AContainer GenerateContainer() {
+    private Container GenerateContainer() {
         float rand = UnityEngine.Random.Range(0.0f, 1.0f);
         int res = CDF.BinarySearch(rand);
         if (res < 0) {
@@ -65,8 +65,8 @@ public class ContainerGenerator : MonoBehaviour {
         return containerTypes[res];
     }
 
-    public Sprite GetTargetSprite(string type) {
-        return targetSprites[type];
+    public Container GetContainer(string type) {
+        return containerDict[type];
     }
 
 }

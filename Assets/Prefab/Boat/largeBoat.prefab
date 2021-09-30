@@ -105,7 +105,7 @@ MonoBehaviour:
   - {fileID: 5219869329050586792}
   - {fileID: 5219869329951350047}
   speed: 2
-  score: 10
+  score: 20
 --- !u!1001 &8084641725407475323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +113,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8084641726574430113}
     m_Modifications:
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812554, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_Name
       value: BoatSlot (3)
@@ -123,7 +139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.69799995
+      value: 0.954
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -159,6 +175,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Size.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Size.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -186,6 +218,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8084641726574430113}
     m_Modifications:
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812554, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_Name
       value: BoatSlot
@@ -196,7 +244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.58000004
+      value: -0.508
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -232,6 +280,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Size.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Size.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -259,6 +323,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8084641726574430113}
     m_Modifications:
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812554, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_Name
       value: BoatSlot (1)
@@ -269,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.155
+      value: -0.023
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -305,6 +385,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Size.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Size.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -332,6 +428,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8084641726574430113}
     m_Modifications:
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255809067250059452, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812554, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_Name
       value: BoatSlot (2)
@@ -342,7 +454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.27
+      value: 0.464
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -378,6 +490,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205124278419812555, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Size.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Size.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205124278419812556, guid: d36142878fb27fb46b6050e6f35600aa, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

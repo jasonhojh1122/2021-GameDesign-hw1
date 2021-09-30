@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class Conveyor : MonoBehaviour, ISlot {
 
-    protected class PositionComparer: IComparer<AContainer> {
-        public int Compare(AContainer x, AContainer y) {
+    protected class PositionComparer: IComparer<Container> {
+        public int Compare(Container x, Container y) {
             if (x.transform.position.x < y.transform.position.x) {
                 return -1;
             }
@@ -22,12 +22,12 @@ public class Conveyor : MonoBehaviour, ISlot {
     [SerializeField] private List<Transform> stopPoints;
 
     private PositionComparer comparer;
-    private List<AContainer> containers;
+    private List<Container> containers;
     private float threshold;
 
     void Start() {
         comparer = new PositionComparer();
-        containers = new List<AContainer>();
+        containers = new List<Container>();
         threshold = stopPoints[1].position.x - stopPoints[0].position.x;
     }
 
@@ -35,7 +35,7 @@ public class Conveyor : MonoBehaviour, ISlot {
         Move();
     }
 
-    public bool Store(AContainer con) {
+    public bool Store(Container con) {
         if (containers.Count == stopPoints.Count) {
             return false;
         }
@@ -61,14 +61,14 @@ public class Conveyor : MonoBehaviour, ISlot {
         }
     }
 
-    public AContainer Retrive(AContainer con) {
+    public Container Retrive(Container con) {
         Debug.Log("Conveyor retrive");
         int res = containers.BinarySearch(con, comparer);
         if (res < 0) {
             Debug.Log("Retrive fail");
             return null;
         }
-        AContainer tmp = containers[res];
+        Container tmp = containers[res];
         containers.RemoveAt(res);
         return tmp;
     }
@@ -85,6 +85,10 @@ public class Conveyor : MonoBehaviour, ISlot {
                 containers[i].transform.position = newPos;
             }
         }
+    }
+
+    public void Touch() {
+        return;
     }
 
 }

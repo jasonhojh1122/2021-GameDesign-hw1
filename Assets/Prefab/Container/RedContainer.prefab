@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8130583219741326765}
   - component: {fileID: 8130583219741326764}
   - component: {fileID: 8130583219741326803}
-  - component: {fileID: 8195190062849059764}
+  - component: {fileID: 6015887954184467566}
   m_Layer: 0
   m_Name: RedContainer
   m_TagString: Container
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1196981569
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6f98ff8f0b0fa124f8050f1c26dacf62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.64}
+    oldSize: {x: 0.43, y: 0.95}
     newSize: {x: 0.32, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.4}
   m_EdgeRadius: 0
---- !u!114 &8195190062849059764
+--- !u!114 &6015887954184467566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,8 +119,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8130583219741326767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bd578d254351b44f804a609effdc661, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f2d0d74b4c9c3c49802250aae7bd16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedWeight: 10
+  selectedWeight: 20
+  containerType: Red
   targetSprite: {fileID: 21300000, guid: bbb47134fc4113643aff3d12ca459f76, type: 3}

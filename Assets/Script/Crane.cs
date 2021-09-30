@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Crane : MonoBehaviour {
 
@@ -6,7 +8,8 @@ public class Crane : MonoBehaviour {
         RIGHT,
         LEFT,
         UP,
-        DOWN
+        DOWN,
+        STOP
     }
 
     public Magnet magnet;
@@ -18,6 +21,22 @@ public class Crane : MonoBehaviour {
 
     [SerializeField] private float baseSpeed;
     [SerializeField] private float magnetSpeed;
+
+    [SerializeField] private GameObject craneBase;
+
+    private Direction curDir;
+    private Animator anim;
+
+    private Dictionary<Direction, string> animState;
+
+    void Awake() {
+        animState = new Dictionary<Direction, string>();
+        animState.Add(Direction.RIGHT, "Right");
+        animState.Add(Direction.LEFT, "Left");
+        animState.Add(Direction.STOP, "Stop");
+        curDir = Direction.STOP;
+        anim = craneBase.GetComponent<Animator>();
+    }
 
     public void Operate()
     {
@@ -44,11 +63,19 @@ public class Crane : MonoBehaviour {
 
     public void Move(Direction dir)
     {
-        if (dir == Direction.RIGHT || dir == Direction.LEFT)
+        if (dir == Direction.STOP)
+            Stop();
+        else if (dir == Direction.RIGHT || dir == Direction.LEFT)
             MoveBase(dir);
         else
             MoveMagnet(dir);
     }
+
+    private void Stop()
+    {
+        anim.Play(animState[Direction.STOP]);
+    }
+
 
     private void MoveBase(Direction dir)
     {
@@ -63,6 +90,10 @@ public class Crane : MonoBehaviour {
         }
         newPos.x = Mathf.Clamp(newPos.x, XMin, XMax);
         gameObject.transform.localPosition = newPos;
+
+        if (dir != curDir) {
+            anim.Play(animState[dir]);
+        }
     }
 
     private void MoveMagnet(Direction dir)
@@ -79,6 +110,5 @@ public class Crane : MonoBehaviour {
         newPos.y = Mathf.Clamp(newPos.y, YMin, YMax);
         magnet.transform.localPosition = newPos;
     }
-
 
 }

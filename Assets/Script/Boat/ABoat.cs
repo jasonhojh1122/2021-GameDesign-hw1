@@ -39,7 +39,7 @@ public abstract class ABoat : MonoBehaviour {
 
     public bool IsSatisfy() {
         for (int i = 0; i < slots.Count; i++) {
-            AContainer con = slots[i].GetContainer();
+            Container con = slots[i].GetContainer();
             if (con == null || con.GetContainerType() != slots[i].GetContainerType()) {
                 return false;
             }
@@ -51,8 +51,8 @@ public abstract class ABoat : MonoBehaviour {
         return stopped;
     }
 
-    public void SetSlotType(int id, string type, Sprite sprite) {
-        slots[id].SetType(type, sprite);
+    public void SetSlotType(int id, Container container) {
+        slots[id].SetType(container);
     }
 
     public void Leave() {
