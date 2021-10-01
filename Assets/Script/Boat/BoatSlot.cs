@@ -25,10 +25,8 @@ public class BoatSlot : MonoBehaviour, ISlot {
         return true;
     }
 
-    public Container Retrive(Container container) {
-        Container tmp = container;
-        container = null;
-        return tmp;
+    public void Retrive(Container container) {
+        this.container = null;
     }
 
     public Container GetContainer() {

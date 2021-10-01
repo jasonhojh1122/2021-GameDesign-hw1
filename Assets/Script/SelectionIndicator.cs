@@ -35,6 +35,7 @@ public class SelectionIndicator : MonoBehaviour
     }
 
     public void Warn(Transform targetTransform) {
+        gameObject.transform.position = targetTransform.position;
         foreach (var r in renderers) {
             r.material.SetFloat("_Indicate", 1f);
             r.material.SetFloat("_Warning", 1f);

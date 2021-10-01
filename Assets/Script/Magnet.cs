@@ -4,20 +4,23 @@ public class Magnet : MonoBehaviour
 {
     public SelectionIndicator indicator;
 
-    private bool withContainer;
+    public bool withContainer;
 
-    private Container container;
-    private SpriteRenderer spriteRenderer;
-    private ISlot slot;
+    public GameObject containerGO;
+    public Container container;
+    public SpriteRenderer spriteRenderer;
+    public ISlot slot;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Container" && withContainer == false) {
-            container = other.gameObject.GetComponent<Container>();
-            spriteRenderer = container.GetComponent<SpriteRenderer>();
-            indicator.Indicate(container.gameObject.transform);
+            containerGO = other.gameObject;
+            // container = other.gameObject.GetComponent<Container>();
+            // spriteRenderer = container.GetComponent<SpriteRenderer>();
+            indicator.Indicate(containerGO.transform);
         }
-        else if (other.gameObject.tag == "Slot") {
+        if (other.gameObject.tag == "Slot") {
+            Debug.Log(string.Format("Ender {0}", other.gameObject.name));
             slot = other.gameObject.GetComponent<ISlot>();
             slot.Touch();
         }
@@ -26,7 +29,7 @@ public class Magnet : MonoBehaviour
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Container" && withContainer == false) {
-            indicator.Indicate(container.gameObject.transform);
+            indicator.Indicate(other.gameObject.transform);
         }
     }
 
@@ -34,16 +37,16 @@ public class Magnet : MonoBehaviour
     {
         if (other.gameObject.tag == "Container" && withContainer == false) {
             indicator.UnIndicate();
-            container = null;
+            containerGO = null;
         }
-        else if (other.gameObject.tag == "Slot") {
+        if (other.gameObject.tag == "Slot") {
             slot = null;
         }
     }
 
     public bool IsOnContainer()
     {
-        return container != null;
+        return containerGO != null;
     }
 
     public bool IsOnSlot()
@@ -55,9 +58,11 @@ public class Magnet : MonoBehaviour
     {
         if (!IsOnSlot()) return;
         indicator.UnIndicate();
-        container = slot.Retrive(container);
-        container.transform.SetParent(gameObject.transform);
+        container = containerGO.GetComponent<Container>();
+        spriteRenderer = containerGO.GetComponent<SpriteRenderer>();
+        containerGO.transform.SetParent(gameObject.transform);
         RaiseSortingOrder();
+        slot.Retrive(container);
         withContainer = true;
     }
 
@@ -66,10 +71,11 @@ public class Magnet : MonoBehaviour
         if (IsOnSlot() && slot.Store(container)) {
             ReduceSortingOrder();
             container = null;
+            spriteRenderer = null;
             withContainer = false;
         }
         else {
-            indicator.Warn(container.transform);
+            indicator.Warn(containerGO.transform);
         }
     }
 

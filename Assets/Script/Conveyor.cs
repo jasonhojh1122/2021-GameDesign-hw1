@@ -61,16 +61,14 @@ public class Conveyor : MonoBehaviour, ISlot {
         }
     }
 
-    public Container Retrive(Container con) {
+    public void Retrive(Container con) {
         Debug.Log("Conveyor retrive");
         int res = containers.BinarySearch(con, comparer);
         if (res < 0) {
             Debug.Log("Retrive fail");
-            return null;
+            return;
         }
-        Container tmp = containers[res];
         containers.RemoveAt(res);
-        return tmp;
     }
 
     public bool IsFull() {

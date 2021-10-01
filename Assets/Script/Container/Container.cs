@@ -17,7 +17,6 @@ public class Container : MonoBehaviour {
     }
 
     public Sprite GetTargetSprite() {
-        Debug.Log(string.Format("Get target sprite {0}", targetSprite.ToString()));
         return targetSprite;
     }
 

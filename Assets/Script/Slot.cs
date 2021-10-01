@@ -23,10 +23,8 @@ public class Slot : MonoBehaviour, ISlot
         return true;
     }
 
-    public Container Retrive(Container container) {
-        Container tmp = this.container;
+    public void Retrive(Container container) {
         this.container = null;
-        return tmp;
     }
 
     public void Touch() {

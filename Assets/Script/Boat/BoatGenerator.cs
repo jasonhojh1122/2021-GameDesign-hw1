@@ -5,18 +5,18 @@ using System.Collections.Generic;
 
 public class BoatGenerator : MonoBehaviour {
 
+    [SerializeField] private GameManager gm;
     [SerializeField] private ContainerGenerator cg;
     [SerializeField] private List<ABoat> boats;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform stopPoint;
     [SerializeField] private Transform leavePoint;
-    [SerializeField] private Text scoreText;
+
 
     private List<float> CDF;
 
     private ABoat curBoat;
     private List<ABoat> endBoats;
-    private int score = 0;
 
     void Start() {
         endBoats = new List<ABoat>();
@@ -40,9 +40,8 @@ public class BoatGenerator : MonoBehaviour {
         for (int i = 0; i-c < endBoats.Count; i++) {
             if (endBoats[i-c].IsStop()) {
                 ABoat tmp = endBoats[i-c];
-                endBoats.RemoveAt(i);
-                score += tmp.GetScore();
-                UpdateScore();
+                endBoats.RemoveAt(i-c);
+                gm.AddScore(tmp.GetScore());
                 tmp.Leave();
             }
         }
@@ -75,15 +74,5 @@ public class BoatGenerator : MonoBehaviour {
         }
     }
 
-    void UpdateScore() {
-        if (score < 10) {
-            scoreText.text = "00" + score.ToString();
-        }
-        else if (score < 100) {
-            scoreText.text = "0" + score.ToString();
-        }
-        else {
-            scoreText.text = score.ToString();
-        }
-    }
+
 }
