@@ -7,6 +7,7 @@ public abstract class ABoat : MonoBehaviour {
     [SerializeField] private List<BoatSlot> slots;
     [SerializeField] private float speed;
     [SerializeField] private int score;
+    [SerializeField] private AudioClip hornSound;
 
     private Vector3 targetPos;
 
@@ -16,7 +17,17 @@ public abstract class ABoat : MonoBehaviour {
         get => slots.Count;
     }
 
+    private AudioSource audioSource;
+
     public abstract float GetWeight(float time);
+
+    void Awake() {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    void Start() {
+        audioSource.PlayOneShot(hornSound, 0.6f);
+    }
 
     protected virtual void Update() {
         if (!stopped)
@@ -32,7 +43,7 @@ public abstract class ABoat : MonoBehaviour {
         Vector3 newPos = gameObject.transform.position;
         newPos.x -= speed * Time.deltaTime;
         gameObject.transform.position = newPos;
-        if (Mathf.Abs(targetPos.x - newPos.x) < 0.01f) {
+        if (Mathf.Abs(targetPos.x - newPos.x) < 0.1f) {
             stopped = true;
         }
     }

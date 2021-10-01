@@ -26,6 +26,7 @@ public class Crane : MonoBehaviour {
 
     private Direction curDir;
     private Animator anim;
+    private AudioSource audioSource;
 
     private Dictionary<Direction, string> animState;
 
@@ -36,6 +37,12 @@ public class Crane : MonoBehaviour {
         animState.Add(Direction.STOP, "Stop");
         curDir = Direction.STOP;
         anim = craneBase.GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    void Start() {
+        audioSource.Play();
+        audioSource.Pause();
     }
 
     public void Operate()
@@ -73,12 +80,15 @@ public class Crane : MonoBehaviour {
 
     private void Stop()
     {
+        audioSource.Pause();
         anim.Play(animState[Direction.STOP]);
     }
 
 
     private void MoveBase(Direction dir)
     {
+        if (!audioSource.isPlaying)
+            audioSource.UnPause();
         Vector3 newPos = gameObject.transform.localPosition;
         switch(dir) {
             case Direction.RIGHT:

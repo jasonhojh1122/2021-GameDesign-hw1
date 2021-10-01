@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Magnet : MonoBehaviour
 {
+
+    [SerializeField] private AudioClip hitSound;
+
     public SelectionIndicator indicator;
 
     public bool withContainer;
@@ -10,6 +13,12 @@ public class Magnet : MonoBehaviour
     public Container container;
     public SpriteRenderer spriteRenderer;
     public ISlot slot;
+
+    private AudioSource audioSource;
+
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -73,6 +82,7 @@ public class Magnet : MonoBehaviour
             container = null;
             spriteRenderer = null;
             withContainer = false;
+            audioSource.PlayOneShot(hitSound, 0.6f);
         }
         else {
             indicator.Warn(containerGO.transform);
